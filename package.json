@@ -1,0 +1,32 @@
+{
+  "name": "@recursive_redundancy/base-converter",
+  "version": "1.0.2",
+  "description": "Convert numeric bases to and from binary, octal, decimal and hexadecimal",
+  "main": "./src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "base",
+    "convert",
+    "base",
+    "conversion",
+    "binary",
+    "convert",
+    "decimal",
+    "convert",
+    "octal",
+    "convert",
+    "hex",
+    "convert",
+    "binary",
+    "decimal",
+    "octal",
+    "hex"
+  ],
+  "author": "Daniel Morgan",
+  "license": "MIT",
+  "dependencies": {
+    "bignumber.js": "^7.2.1"
+  }
+}
