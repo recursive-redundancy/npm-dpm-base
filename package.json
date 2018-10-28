@@ -24,6 +24,10 @@
     "octal",
     "hex"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/recursive-redundancy/npm-base-converter" 
+  },
   "author": "Daniel Morgan",
   "license": "MIT",
   "dependencies": {
