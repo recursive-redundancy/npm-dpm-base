@@ -17,7 +17,7 @@ function repeat(times, value) {
 
 
 /*
-* Trims off any leading zeroes in a binary value
+* Trims off any leading zeroes in a value
 */
 function trimLeadingZeros(value) {
   return value.replace(/^0*/, '');

@@ -1,6 +1,6 @@
 {
   "name": "@recursive_redundancy/base-converter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Convert numeric bases to and from binary, octal, decimal and hexadecimal",
   "main": "./src/main.js",
   "scripts": {
