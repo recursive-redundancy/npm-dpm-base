@@ -1,6 +1,6 @@
 {
-  "name": "@recursive_redundancy/base-converter",
-  "version": "1.0.3",
+  "name": "dpm-base-convert",
+  "version": "1.0.0",
   "description": "Convert numeric bases to and from binary, octal, decimal and hexadecimal",
   "main": "./src/main.js",
   "scripts": {
@@ -26,7 +26,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/recursive-redundancy/npm-base-converter" 
+    "url": "https://github.com/recursive-redundancy/npm-dpm-base-convert" 
   },
   "author": "Daniel Morgan",
   "license": "MIT",
