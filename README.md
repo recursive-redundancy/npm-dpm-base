@@ -23,13 +23,15 @@ Each module contains four basic conversion functions:
 - toDec(value)- for conversion from base to decimal (base-10)
 - toHex(value) - for conversion from base to hexadecimal (base-16)
 
+Converted values return as String
+
 These conversion functions return null if supplied value is invalid
 
 
 Each module also supports converting from its base to the same base, which means 
 it simply returns the same value supplied.
 
-Additionally, each module has a function for validing number is valid base value
+Additionally, each module has a function for validating number is valid base value
 - isValid(value)
 ## Binary
 ### Binary is valid
