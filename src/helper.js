@@ -25,19 +25,6 @@ function trimLeadingZeros(value) {
 
 
 /*
-* Takes a single digit alphanumeric
-* and codes it to an alpha value
-* i.e: '10'
-*/
-function alphaToNumeral(digit) {
-
-}
-
-function numeralToAlpha(digit) {
-
-}
-
-/*
 * EXPORTS
 */
 module.exports = {

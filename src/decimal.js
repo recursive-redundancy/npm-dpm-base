@@ -20,7 +20,7 @@ const BigNumber = require('bignumber.js');
 * arg1 is the base from which to convert
 * arg2 is the value to convert
 */
-function baseToDecimal(base, value) {
+function basetoDec(base, value) {
   if (value == null || value == undefined ||
       base == null || base == undefined) return null;
   if (typeof(value) != "string") value = value.toString();
@@ -112,7 +112,7 @@ function toBase(base, value) {
 * shortcut function for toBase(2, value)
 * arg1 is value to convert
 */
-function toBinary(value) {
+function toBin(value) {
   return toBase(2, value);
 }
 
@@ -123,7 +123,7 @@ function toBinary(value) {
 * return the input value
 * arg1 is value to convert
 */
-function toDecimal(value) {
+function toDec(value) {
   return value;
 }
 
@@ -142,7 +142,7 @@ function toHex(value) {
 * shortcut function for toBase(8, value)
 * arg1 is value to convert
 */
-function toOctal(value) {
+function toOct(value) {
   return toBase(8, value);
 }
 
@@ -168,11 +168,11 @@ function isValid(value) {
 * EXPORTS
 */
 module.exports = {
-  baseToDecimal,
+  basetoDec,
   isValid,
   toBase,
-  toBinary,
-  toDecimal,
+  toBin,
+  toDec,
   toHex,
-  toOctal
+  toOct
 };

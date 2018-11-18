@@ -13,13 +13,13 @@ const {padToBits} = require('./binary.js');
 * returns null if binary value is invalid
 * args is value to convert to decimal
 */
-function toDecimal(value) {
+function toDec(value) {
   if (!isValid(value)) return null;
   if (typeof(value) != "string") value = value.toString();
 
-  const {baseToDecimal} = require('./decimal.js');
+  const {basetoDec} = require('./decimal.js');
 
-  return baseToDecimal('8', value);
+  return basetoDec('8', value);
 }
 
 
@@ -29,12 +29,12 @@ function toDecimal(value) {
 * arg1 is value to convert
 * returns null if invalid value
 */
-function toBinary(value) {
+function toBin(value) {
   if (value == null || value == undefined ||
     !isValid(value)) return null;
   if (typeof(value) != "string") value = value.toString();
 
-  const {toBinary} = require('./decimal.js');
+  const {toBin} = require('./decimal.js');
 
   value = trimLeadingZeros(value);
 
@@ -43,7 +43,7 @@ function toBinary(value) {
   digits = digits.map((digit) => {
     /* convert digit to binary
     *  and padd to 3-bits if necessary */
-    return padToBits(3, toBinary(digit));
+    return padToBits(3, toBin(digit));
   });
 
   return trimLeadingZeros(digits.join(''));
@@ -70,7 +70,7 @@ function toHex(value) {
   digits = digits.map((digit) => {
     /* convert digit to binary value
     *  pad it to 3-bit if needed */
-    return padToBits(3, toBinary(digit));
+    return padToBits(3, toBin(digit));
   });
 
   /* assemble list of 3-bit binary values
@@ -85,7 +85,7 @@ function toHex(value) {
 * return the input value
 * arg1 is value to convert
 */
-function toOctal(value) {
+function toOct(value) {
   return value;
 }
 
@@ -112,8 +112,8 @@ function isValid(value) {
 */
 module.exports = {
   isValid,
-  toBinary,
-  toDecimal,
+  toBin,
+  toDec,
   toHex,
-  toOctal
+  toOct
 };

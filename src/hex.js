@@ -52,13 +52,13 @@ const HEX_DIGIT_TO_ALPHA = {
 * returns null if value is invalid
 * args is value to convert to decimal
 */
-function toDecimal(value) {
+function toDec(value) {
   if (!isValid(value)) return null;
   if (typeof(value) != "string") value = value.toString();
 
-  const {baseToDecimal} = require('./decimal');
+  const {basetoDec} = require('./decimal');
 
-  return baseToDecimal('16', value);
+  return basetoDec('16', value);
 };
 
 
@@ -68,12 +68,12 @@ function toDecimal(value) {
 * arg1 is value to convert
 * returns null if invalid value
 */
-function toBinary(value) {
+function toBin(value) {
   if (value == null || value == undefined ||
     !isValid(value)) return null;
   if (typeof(value) != "string") value = value.toString();
   
-  const {toBinary} = require('./decimal.js');
+  const {toBin} = require('./decimal.js');
   const {padToBits} = require('./binary.js');
 
   value = trimLeadingZeros(value);
@@ -85,7 +85,7 @@ function toBinary(value) {
     /* convert hex digit to decimal value
     *  and convert the decimal value into binary value
     *  pad binary value to 4-bit if needed */
-    return padToBits(4, toBinary(toDecimal(digit)));
+    return padToBits(4, toBin(toDec(digit)));
   });
 
   return trimLeadingZeros(digits.join(''));
@@ -109,19 +109,19 @@ function toHex(value) {
 * arg1 is value to convert
 * returns null if invalid value
 */
-function toOctal(value) {
+function toOct(value) {
   if (value == null || value == undefined ||
     !isValid(value)) return null;
   if (typeof(value) != "string") value = value.toString();
 
-  const {toOctal} = require('./binary.js');
+  const {toOct} = require('./binary.js');
 
   /* 
   * convert hex to binary
   * then convert the binary to octal
   * and trim any leading zeroes
   */
-  return trimLeadingZeros(toOctal(toBinary(value)));
+  return trimLeadingZeros(toOct(toBin(value)));
 }
 
 
@@ -149,9 +149,9 @@ module.exports = {
   HEX_ALPHA_TO_DIGIT,
   HEX_DIGIT_TO_ALPHA,
   isValid,
-  toBinary,
-  toDecimal,
+  toBin,
+  toDec,
   toHex,
-  toOctal
+  toOct
 };
 

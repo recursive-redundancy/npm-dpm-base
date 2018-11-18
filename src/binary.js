@@ -12,13 +12,13 @@ const {trimLeadingZeros} = require('./helper.js');
 * and returns value converted into decimal format (returns as string)
 * args is value to convert to decimal
 */
-function toDecimal(value) {
+function toDec(value) {
   if (!isValid(value)) return null;
   if (typeof(value) != "string") value = value.toString();
 
-  const {baseToDecimal} = require('./decimal.js');
+  const {basetoDec} = require('./decimal.js');
 
-  return baseToDecimal('2', value);
+  return basetoDec('2', value);
 }
 
 
@@ -28,7 +28,7 @@ function toDecimal(value) {
 * return the input value
 * arg1 is value to convert
 */
-function toBinary(value) {
+function toBin(value) {
   return value;
 }
 
@@ -57,12 +57,12 @@ function toHex(value) {
   /*
   * convert 4-bit segment to decimal value
   * segment must be reversed again to allow
-  * toDecimal function to process properly
+  * toDec function to process properly
   * convert the decimal value into hex value
   * and push into list of converted segments 
   */
   segs = segs.map((seg) => {
-    return toHex(toDecimal(seg.split('').reverse().join('')));
+    return toHex(toDec(seg.split('').reverse().join('')));
   });
   
   /* 
@@ -80,12 +80,12 @@ function toHex(value) {
 * arg1 is value to convert
 * returns null if invalid value
 */
-function toOctal(value) {
+function toOct(value) {
   if (value == null || value == undefined ||
     !isValid(value)) return null;
   if (typeof(value) != "string") value = value.toString();
   
-  const {toOctal} = require('./decimal.js');
+  const {toOct} = require('./decimal.js');
 
   value = trimLeadingZeros(value);
 
@@ -98,12 +98,12 @@ function toOctal(value) {
 
   /*
   * convert 3-bit segment to decimal value
-  * reverse segment again so toDecimal function processes properly
+  * reverse segment again so toDec function processes properly
   * convert the decimal value into octal value
   * and push into list of converted segments
   */
   segs = segs.map((seg) => {
-    return toOctal(toDecimal(seg.split('').reverse().join('')));
+    return toOct(toDec(seg.split('').reverse().join('')));
   });
 
   /*
@@ -157,9 +157,9 @@ function isValid(value) {
 */
 module.exports = {
   isValid,
-  toBinary,
-  toDecimal,
+  toBin,
+  toDec,
   toHex,
-  toOctal,
+  toOct,
   padToBits
 };
