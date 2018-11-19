@@ -4,7 +4,7 @@
 * Octal to: decimal, binary, hex
 */
 
-const {trimLeadingZeros} = require('./helper.js');
+const {trimLeadingZeroes} = require('./helper.js');
 const {padToBits} = require('./binary.js');
 
 /* 
@@ -36,7 +36,7 @@ function toBin(value) {
 
   const {toBin} = require('./decimal.js');
 
-  value = trimLeadingZeros(value);
+  value = trimLeadingZeroes(value);
 
   // break octal value in single digits
   let digits = value.split('');
@@ -46,7 +46,7 @@ function toBin(value) {
     return padToBits(3, toBin(digit));
   });
 
-  return trimLeadingZeros(digits.join(''));
+  return trimLeadingZeroes(digits.join(''));
 }
 
 
@@ -63,7 +63,7 @@ function toHex(value) {
 
   const {toHex} = require('./binary.js');
 
-  value = trimLeadingZeros(value);
+  value = trimLeadingZeroes(value);
 
   // break value into single digits
   let digits = value.split('');
@@ -75,7 +75,7 @@ function toHex(value) {
 
   /* assemble list of 3-bit binary values
   *  and convert to a single hex value */
-  return trimLeadingZeros(toHex(digits.join('')));
+  return trimLeadingZeroes(toHex(digits.join('')));
 }
 
 

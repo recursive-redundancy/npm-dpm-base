@@ -1,11 +1,10 @@
-/*
-* Binary module
-* contains all logic and functionality for binary conversions
-* Binary to: decimal, hex, octal
-*/
+/**
+ * Binary module. Contains all logic and functionality for binary conversions
+ * @module binary
+ */
 "use strict";
 
-const {trimLeadingZeros} = require('./helper.js');
+const {trimLeadingZeroes} = require('./helper');
 
 /* 
 * takes a binary number value
@@ -46,7 +45,7 @@ function toHex(value) {
   
   const {toHex} = require('./decimal.js');
 
-  value = trimLeadingZeros(value);
+  value = trimLeadingZeroes(value);
 
   /*reverse string value so interpreted from right to left
   * so they will be broken into 4-bit segments properly */
@@ -70,7 +69,7 @@ function toHex(value) {
   * to put back in proper order
   * then reassemble into a string result 
   */
-  return trimLeadingZeros(segs.reverse().join(''));
+  return trimLeadingZeroes(segs.reverse().join(''));
 }
 
 
@@ -84,7 +83,7 @@ function toOct(value) {
   if (value == null || value == undefined ||
     !isValid(value)) return null;
   if (typeof(value) != "string") value = value.toString();
-  // value = trimLeadingZeros(value);
+  // value = trimLeadingZeroes(value);
   // if (value.length == 0) return '';
   
   const {toOct} = require('./decimal.js');
@@ -112,7 +111,7 @@ function toOct(value) {
   * to put back in proper order
   * then reassemble into a string result
   */
-  return trimLeadingZeros(segs.reverse().join(''));
+  return trimLeadingZeroes(segs.reverse().join(''));
 }
 
 

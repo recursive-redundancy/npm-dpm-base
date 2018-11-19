@@ -4,7 +4,7 @@
 * Hexadecimal to: decimal, binary, octal
 */
 
-const {trimLeadingZeros} = require('./helper.js');
+const {trimLeadingZeroes} = require('./helper.js');
 
 // key for converting hex alphanumerics to numerals
 const HEX_ALPHA_TO_DIGIT = {
@@ -76,7 +76,7 @@ function toBin(value) {
   const {toBin} = require('./decimal.js');
   const {padToBits} = require('./binary.js');
 
-  value = trimLeadingZeros(value);
+  value = trimLeadingZeroes(value);
 
   // break hex value into single digits
   let digits = value.split('');
@@ -88,7 +88,7 @@ function toBin(value) {
     return padToBits(4, toBin(toDec(digit)));
   });
 
-  return trimLeadingZeros(digits.join(''));
+  return trimLeadingZeroes(digits.join(''));
 }
 
 
@@ -121,7 +121,7 @@ function toOct(value) {
   * then convert the binary to octal
   * and trim any leading zeroes
   */
-  return trimLeadingZeros(toOct(toBin(value)));
+  return trimLeadingZeroes(toOct(toBin(value)));
 }
 
 
