@@ -7,11 +7,13 @@
 const { binary, octal, decimal, hex } = require('./main');
 const helper = require('./helper');
 
-var blip;
+var undf;
 
-// set of test values
-const vals = [
-  blip,
+/**
+ * Set of test values
+ */
+const TEST_SET = [
+  undf, // undefined
   null,
   '',
   '0',
@@ -20,6 +22,8 @@ const vals = [
   '1',
   '01',
   '00001',
+  '0001000',
+  '0012000',
   '999999999999999999999999999',
   '100',
   '00a',
@@ -27,9 +31,7 @@ const vals = [
 ];
 
 
-runTests(vals);
-
-
+runAllTests(TEST_SET);
 
 
 
@@ -37,9 +39,9 @@ runTests(vals);
 * Iterates set of test values
 * and runs all tests on each value
 */
-function runTests(set) {
-  vals.forEach(val => {
-    runTestSet(val);
+function runAllTests(set) {
+  set.forEach(test => {
+    runTest(test);
   });
 }
 
@@ -49,68 +51,83 @@ function runTests(set) {
 * The set of tests is each conversion function
 * for each base module
 */
-function runTestSet(val) {
+function runTest(test) {
   
-  // testIsValEmpty(val);
-  testTrimZeroes(val);
-  // console.log("helper.stripValue(" + val + ")");
-  // let strip = helper.stripValue(val, binary.isValid);
-  // (strip) ? console.log(strip) : console.log("strip isNull");
-  // /*
-  // * Binary module tests
-  // */
-  // console.log("binary.toBin(" + val + ")");
-  // console.log(binary.toBin(val));
-  // console.log("binary.toOct(" + val + ")");
-  // console.log(binary.toOct(val));
-  // console.log("binary.toDec(" + val + ")");
-  // console.log(binary.toDec(val));
-  // console.log("binary.toHex(" + val + ")");
-  // console.log(binary.toHex(val));
+  // testIsValEmpty(test);
 
-  // /*
-  // * Octal module tests
-  // */
-  // console.log("octal.toBin(" + val + ")");
-  // console.log(octal.toBin(val));
-  // console.log("octal.toOct(" + val + ")");
-  // console.log(octal.toOct(val));
-  // console.log("octal.toDec(" + val + ")");
-  // console.log(octal.toDec(val));
-  // console.log("octal.toHex(" + val + ")");
-  // console.log(octal.toHex(val));
+  testTrimZeroes(test);
 
-  // /*
-  // * Decimal module tests
-  // */
-  // console.log("decimal.toBin(" + val + ")");
-  // console.log(decimal.toBin(val));
-  // console.log("decimal.toOct(" + val + ")");
-  // console.log(decimal.toOct(val));
-  // console.log("decimal.toDec(" + val + ")");
-  // console.log(decimal.toDec(val));
-  // console.log("decimal.toHex(" + val + ")");
-  // console.log(decimal.toHex(val));
+  testStripValue(test, binary.isValid, "binary");
+  testStripValue(test, octal.isValid, "octal");
+  testStripValue(test, decimal.isValid, "decimal");
+  testStripValue(test, hex.isValid, "hexadecimal");
 
-  // /*
-  // * Hex module tests
-  // */
-  // console.log("hex.toBin(" + val + ")");
-  // console.log(hex.toBin(val));
-  // console.log("hex.toOct(" + val + ")");
-  // console.log(hex.toOct(val));
-  // console.log("hex.toDec(" + val + ")");
-  // console.log(hex.toDec(val));
-  // console.log("hex.toHex(" + val + ")");
-  // console.log(hex.toHex(val));
+
+  /*
+  * Binary module tests
+  */
+  console.log("binary.toBin(" + test + ")");
+  console.log(binary.toBin(test));
+  console.log("binary.toOct(" + test + ")");
+  console.log(binary.toOct(test));
+  console.log("binary.toDec(" + test + ")");
+  console.log(binary.toDec(test));
+  console.log("binary.toHex(" + test + ")");
+  console.log(binary.toHex(test));
+
+  /*
+  * Octal module tests
+  */
+  console.log("octal.toBin(" + test + ")");
+  console.log(octal.toBin(test));
+  console.log("octal.toOct(" + test + ")");
+  console.log(octal.toOct(test));
+  console.log("octal.toDec(" + test + ")");
+  console.log(octal.toDec(test));
+  console.log("octal.toHex(" + test + ")");
+  console.log(octal.toHex(test));
+
+  /*
+  * Decimal module tests
+  */
+  console.log("decimal.toBin(" + test + ")");
+  console.log(decimal.toBin(test));
+  console.log("decimal.toOct(" + test + ")");
+  console.log(decimal.toOct(test));
+  console.log("decimal.toDec(" + test + ")");
+  console.log(decimal.toDec(test));
+  console.log("decimal.toHex(" + test + ")");
+  console.log(decimal.toHex(test));
+
+  /*
+  * Hex module tests
+  */
+  console.log("hex.toBin(" + test + ")");
+  console.log(hex.toBin(test));
+  console.log("hex.toOct(" + test + ")");
+  console.log(hex.toOct(test));
+  console.log("hex.toDec(" + test + ")");
+  console.log(hex.toDec(test));
+  console.log("hex.toHex(" + test + ")");
+  console.log(hex.toHex(test));
 }
 
-function testIsValEmpty(val){
-  console.log("isValEmpty(" + val + ")");
-  console.log(helper.isValEmpty(val));
+/*
+* isValEmpty must be exported
+*/
+function testIsValEmpty(test){
+  console.log("isValEmpty(" + test + ")");
+  console.log(helper.isValEmpty(test));
 }
 
-function testTrimZeroes(val) {
-  console.log("trimLeadingZeroes(" + val + ")");
-  console.log(helper.trimLeadingZeroes(val));
+
+function testStripValue(test, validator, valdtrName) {
+  console.log("stripValue(" + test + ", " + valdtrName + ")");
+  console.log(helper.stripValue(test, validator));
+}
+
+
+function testTrimZeroes(test) {
+  console.log("trimLeadingZeroes(" + test + ")");
+  console.log(helper.trimLeadingZeroes(test));
 }
