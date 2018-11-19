@@ -119,7 +119,7 @@ let result = base.hex.toHex(1001);
 ```
 
 
-# Dependancies
+# Dependencies
 [bignumber.js](https://github.com/MikeMcl/bignumber.js) : A JavaScript library 
 for arbitrary-precision decimal and non-decimal arithmetic
 # License
