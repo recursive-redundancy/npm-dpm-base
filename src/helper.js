@@ -20,6 +20,7 @@ function repeat(times, value) {
 * Trims off any leading zeroes in a value
 */
 function trimLeadingZeros(value) {
+  if (value = '0') return value;
   return value.replace(/^0*/, '');
 }
 

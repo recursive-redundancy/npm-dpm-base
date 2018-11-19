@@ -84,10 +84,11 @@ function toOct(value) {
   if (value == null || value == undefined ||
     !isValid(value)) return null;
   if (typeof(value) != "string") value = value.toString();
+  // value = trimLeadingZeros(value);
+  // if (value.length == 0) return '';
   
   const {toOct} = require('./decimal.js');
 
-  value = trimLeadingZeros(value);
 
   // reverse string value so interpreted from right to left
   // so they will be broken into 3-bit segments properly

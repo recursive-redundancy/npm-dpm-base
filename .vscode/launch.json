@@ -1,0 +1,14 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "configurations": [
+    {
+      // a config for running tests on module's functionality
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Test Sets",
+      "program": "${workspaceFolder}\\src\\test.js"
+    }
+  ]
+}
