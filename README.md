@@ -3,6 +3,9 @@ A simple JavaScript library for converting numeric bases. Comprised of modules
 binary, octal, decimal and hex - supporting functions for conversion of base-2, 
 base-8, base-10 and base-16. Conversion logic written in JavaScript, with support 
 for big number calculations via bignumber.js dependancy.
+
+**NOTE: This library is currently in testing phase and has bugs at the moment.**
+
 ## Limitations
 - Currently only support conversion of whole number values - no fractional values 
 as of yet. Support for fractional conversion may be added in the future.
