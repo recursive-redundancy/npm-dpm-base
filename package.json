@@ -4,7 +4,7 @@
   "description": "Convert numeric bases to and from binary, octal, decimal and hexadecimal",
   "main": "./src/main.js",
   "files": [
-    "./src/main.js"
+    "src"
   ],
   "scripts": {
     "test": "node test/test.js"
