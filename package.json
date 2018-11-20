@@ -1,10 +1,10 @@
 {
   "name": "dpm-base",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Convert numeric bases to and from binary, octal, decimal and hexadecimal",
   "directories": {
     "src": "src",
-    "test": "test" 
+    "test": "test"
   },
   "main": "./src/main.js",
   "scripts": {
