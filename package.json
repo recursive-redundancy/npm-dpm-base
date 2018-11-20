@@ -2,10 +2,6 @@
   "name": "dpm-base",
   "version": "0.2.6",
   "description": "Convert numeric bases to and from binary, octal, decimal and hexadecimal",
-  "directories": {
-    "src": "src",
-    "test": "test"
-  },
   "main": "./src/main.js",
   "scripts": {
     "test": "node test/test.js"
@@ -13,16 +9,8 @@
   "keywords": [
     "base",
     "convert",
-    "base",
     "conversion",
-    "binary",
-    "convert",
-    "decimal",
-    "convert",
-    "octal",
-    "convert",
-    "hex",
-    "convert",
+    "converter",
     "binary",
     "decimal",
     "octal",
