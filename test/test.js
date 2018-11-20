@@ -3,8 +3,8 @@
  * A very simple script for unit testing module functionality.
  */
 
-const { binary, octal, decimal, hex } = require('./main');
-const helper = require('./helper');
+const { binary, octal, decimal, hex } = require('../src/main');
+const helper = require('../src/helper');
 
 
 // a variabled that is undefined
