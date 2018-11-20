@@ -3,12 +3,7 @@
   "version": "0.2.4",
   "description": "Convert numeric bases to and from binary, octal, decimal and hexadecimal",
   "files": [
-    "binary.js",
-    "decimal.js",
-    "helper.js",
-    "hex.js",
-    "main.js",
-    "octal.js"
+    "*"
   ],
   "main": "./src/main.js",
   "scripts": {
