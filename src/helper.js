@@ -3,6 +3,7 @@
  * @module helper
  */
 
+ 
 /**
  * Checks whether value has any meaningful value to be parsed.
  * Returns false if value is null, undefined or empty string
@@ -15,6 +16,7 @@ function isValEmpty(value) {
     value == '') return true;
   return false;
 }
+
 
 /**
  * Replacement for String.prototype.repeat behavior
@@ -68,6 +70,7 @@ function trimLeadingZeroes(value) {
 
 
 module.exports = {
+  isValEmpty,
   repeat,
   stripValue,
   trimLeadingZeroes

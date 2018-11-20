@@ -4,7 +4,7 @@
  */
 "use strict";
 
-const {trimLeadingZeroes} = require('./helper');
+const {stripValue, trimLeadingZeroes} = require('./helper');
 
 /* 
 * takes a binary number value
@@ -12,8 +12,7 @@ const {trimLeadingZeroes} = require('./helper');
 * args is value to convert to decimal
 */
 function toDec(value) {
-  if (!isValid(value)) return null;
-  if (typeof(value) != "string") value = value.toString();
+  if (!(value = stripValue(value, isValid))) return null;
 
   const {basetoDec} = require('./decimal.js');
 
