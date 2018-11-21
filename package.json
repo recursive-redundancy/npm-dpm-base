@@ -3,6 +3,11 @@
   "version": "0.2.10",
   "description": "Convert numeric bases to and from binary, octal, decimal and hexadecimal",
   "main": "./src/main.js",
+  "directories": {
+    "docs": "docs",
+    "src": "src",
+    "test": "test"
+  },
   "files": [
     "src"
   ],
@@ -27,5 +32,8 @@
   "license": "MIT",
   "dependencies": {
     "bignumber.js": "^7.2.1"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.5.5"
   }
 }
