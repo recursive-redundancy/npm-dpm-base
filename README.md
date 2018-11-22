@@ -39,7 +39,7 @@ Additionally, each module has a function for validating number is valid base val
 ## Binary
 ### Binary is valid
 ```
-let isValid = base.binary.isValid(1111);
+let isValid = base.binary.isValid(1001);
 ```
 ### Binary to Binary
 ```
@@ -60,7 +60,7 @@ let result = base.binary.toHex(1001);
 ## Octal
 ### Octal is valid
 ```
-let isValid = base.octal.isValid(1111);
+let isValid = base.octal.isValid(1001);
 ```
 ### Octal to Binary
 ```
@@ -81,7 +81,7 @@ let result = base.octal.toHex(1001);
 ## Decimal
 ### Decimal is valid
 ```
-let isValid = base.decimal.isValid(1111);
+let isValid = base.decimal.isValid(1001);
 ```
 ### Decimal to Binary
 ```
@@ -102,7 +102,7 @@ let result = base.decimal.toHex(1001);
 ## Hexadecimal
 ### Hexadecimal is valid
 ```
-let isValid = base.hex.isValid(1111);
+let isValid = base.hex.isValid(1001);
 ```
 ### Hexadecimal to Binary
 ```
