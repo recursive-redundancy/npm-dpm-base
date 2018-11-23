@@ -12,6 +12,7 @@
     "src"
   ],
   "scripts": {
+    "jsdoc": "jsdoc -c jsdoc/config.json",
     "test": "node test/test.js"
   },
   "keywords": [
