@@ -14,6 +14,8 @@ So if user requires ES5 and/or older browser support, the package must be transp
 using method of your choice. I prefer [babel](https://babeljs.io/).
 # Installation
 npm install dpm-base
+# API Documentation
+https://recursive-redundancy.github.io/npm-dpm-base/
 # Usage
 ## importing package in script
 ```
