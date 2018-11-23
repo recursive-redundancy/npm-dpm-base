@@ -50,7 +50,7 @@ function repeat(times, value) {
  * or returns stripped value otherwise
  */
 function stripValue(value, validator) {
-  if (isValEmpty(value) || !validator(value)) return null;
+  if (!validator(value)) return null;
   value = value.toString();
   return trimLeadingZeroes(value);
 }

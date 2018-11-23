@@ -11,10 +11,6 @@
   "files": [
     "src"
   ],
-  "scripts": {
-    "jsdoc": "jsdoc -c jsdoc/config.json",
-    "test": "node test/test.js"
-  },
   "keywords": [
     "base",
     "convert",
@@ -35,6 +31,18 @@
     "bignumber.js": "^7.2.1"
   },
   "devDependencies": {
-    "jsdoc": "^3.5.5"
+    "http-server": "^0.11.1",
+    "jsdoc": "^3.5.5",
+    "npm-parallel": "^2.0.1",
+    "onchange": "^5.1.1",
+    "rimraf": "^2.6.2"
+  },
+  "scripts": {
+    "jsdoc": "parallel jsdoc:onchange jsdoc:http",
+    "prejsdoc:gen": "rimraf docs",
+    "jsdoc:gen": "jsdoc -c jsdoc/config.json",
+    "jsdoc:http": "http-server ./docs",
+    "jsdoc:onchange": "onchange \"src/*.js\" -- npm run jsdoc:gen",
+    "test": "node test/test.js"
   }
 }

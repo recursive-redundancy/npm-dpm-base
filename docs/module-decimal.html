@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: helper</title>
+    <title>JSDoc: Module: decimal</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: helper</h1>
+    <h1 class="page-title">Module: decimal</h1>
 
     
 
@@ -38,7 +38,7 @@
     <div class="container-overview">
     
         
-            <div class="description">Helper Module. Contains helper logic used package-wide.</div>
+            <div class="description">Decimal module. Contains all logic and functionality for decimal conversions to and from any base (binary, octal, decimal and hexadecimal).</div>
         
 
         
@@ -87,7 +87,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line1">line 1</a>
+        <a href="decimal.js.html">decimal.js</a>, <a href="decimal.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -132,6 +132,72 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="~BigNumber"><span class="type-signature">(inner, constant) </span>BigNumber<span class="type-signature"></span></h4>
+
+
+
+
+<div class="description">
+    Use bignumber.js library for precise math calculations of big numbers without losing precision as with typical maths functionality in js
+</div>
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="decimal.js.html">decimal.js</a>, <a href="decimal.js.html#line13">line 13</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -142,7 +208,7 @@
     
 
     
-    <h4 class="name" id="~isValEmpty"><span class="type-signature">(inner) </span>isValEmpty<span class="signature">(value)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    <h4 class="name" id="~basetoDec"><span class="type-signature">(inner) </span>basetoDec<span class="signature">(base, value)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
     
@@ -150,7 +216,189 @@
 
 
 <div class="description">
-    Checks whether value has any meaningful value to be parsed.Returns false if value is null, undefined or empty stringReturns true otherwise
+    Converts a base to decimal format (base-10)
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>base</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Base from which to convert.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Value to convert.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="decimal.js.html">decimal.js</a>, <a href="decimal.js.html#line23">line 23</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~isValid"><span class="type-signature">(inner) </span>isValid<span class="signature">(value)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Checks if value is a valid decimal number for conversion.
 </div>
 
 
@@ -205,7 +453,7 @@
 
             
 
-            <td class="description last">The (alpha)numeric value to check.</td>
+            <td class="description last">Value to validate.</td>
         </tr>
 
     
@@ -246,7 +494,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line14">line 14</a>
+        <a href="decimal.js.html">decimal.js</a>, <a href="decimal.js.html#line155">line 155</a>
     </li></ul></dd>
     
 
@@ -298,7 +546,7 @@
     
 
     
-    <h4 class="name" id="~repeat"><span class="type-signature">(inner) </span>repeat<span class="signature">(times, value)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="~toBase"><span class="type-signature">(inner) </span>toBase<span class="signature">(base, value)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
     
@@ -306,7 +554,7 @@
 
 
 <div class="description">
-    Replacement for String.prototype.repeat behaviorwhich is not supported in older browsers
+    Converts a decimal value to a different base value.Either binary, octal, decimal or hex.
 </div>
 
 
@@ -342,7 +590,7 @@
 
         <tr>
             
-                <td class="name"><code>times</code></td>
+                <td class="name"><code>base</code></td>
             
 
             <td class="type">
@@ -361,162 +609,9 @@
 
             
 
-            <td class="description last">How many times to repeat value</td>
+            <td class="description last">Base from which to convert.</td>
         </tr>
 
-    
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Value to be repeated</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line28">line 28</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="~stripValue"><span class="type-signature">(inner) </span>stripValue<span class="signature">(value, validator)</span><span class="type-signature"> &rarr; {null|string}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Helper function for start of all module conversion functions.Takes input value and strips it down - removes all leading zeroes from value, but will leave a single zero value remaining, in which case returns '0' if value input is '0', '000' returns '0', etcChecks supplied module's isValid function to test value is valid.Additionally, converts value to stringreturns null if value is undefined, null, or !isValid
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
     
 
         <tr>
@@ -544,29 +639,6 @@
         </tr>
 
     
-
-        <tr>
-            
-                <td class="name"><code>validator</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">function to validate base value</td>
-        </tr>
-
-    
     </tbody>
 </table>
 
@@ -604,7 +676,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line52">line 52</a>
+        <a href="decimal.js.html">decimal.js</a>, <a href="decimal.js.html#line65">line 65</a>
     </li></ul></dd>
     
 
@@ -630,10 +702,6 @@
 <h5>Returns:</h5>
 
         
-<div class="param-desc">
-    '0' if value param is all zeroes, null if invalid value, or returns stripped value otherwise
-</div>
-
 
 
 <dl>
@@ -642,173 +710,7 @@
     </dt>
     <dd>
         
-<span class="param-type">null</span>
-|
-
 <span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="~trimLeadingZeroes"><span class="type-signature">(inner) </span>trimLeadingZeroes<span class="signature">(value)</span><span class="type-signature"> &rarr; {string|null}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Trims off any leading zeroes in a value. Will leave one leading zero if it is not proceeded byany other characters - effectively leaving a lone zero.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Value to be trimmed</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line66">line 66</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Value trimmed of leading zeros or null if value is empty
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-|
-
-<span class="param-type">null</span>
 
 
     </dd>

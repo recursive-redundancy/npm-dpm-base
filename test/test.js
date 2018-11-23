@@ -14,24 +14,24 @@ var undf;
 const TEST_SET = [
   undf, // undefined
   null,
-  '',
-  '0',
-  '00',
+  // '',
+  // '0',
+  // '00',
   '0000000',
-  '1',
+  // '1',
   '01',
   '00001',
-  '0001000',
+  // '0001000',
   '100',
-  '100111000101011100000111',
-  '0012000',
-  '999999999999999999999999999',
-  '00a',
-  '0123456789abcdef'
+  // '100111000101011100000111',
+  // '0012000',
+  // '999999999999999999999999999',
+  // '00a',
+  // '0123456789abcdef'
 ];
 
-
-runTestSet(TEST_SET, false, false, false, true, true, true, true);
+console.log(hex.isValid('ab'));
+runTestSet(TEST_SET, false, false, false, false, false, true, false);
 
 
 /**
