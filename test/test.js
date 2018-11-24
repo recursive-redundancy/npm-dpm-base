@@ -31,7 +31,7 @@ const TEST_SET = [
 ];
 
 
-runTestSet(TEST_SET, false, false, false, true, false, false, false);
+runTestSet(TEST_SET, false, false, false, false, true, false, false);
 
 
 /**
@@ -98,26 +98,26 @@ doHex = true) {
 
 
 function testModBin(test) {
-  // console.log("TEST: binary.toBin(" + test + ")");
-  // console.log("RESULT: " + binary.toBin(test));
+  console.log("TEST: binary.toBin(" + test + ")");
+  console.log("RESULT: " + binary.toBin(test));
   console.log("TEST: binary.toOct(" + test + ")");
   console.log("RESULT: " + binary.toOct(test));
-  // console.log("TEST: binary.toDec(" + test + ")");
-  // console.log("RESULT: " + binary.toDec(test));
-  // console.log("TEST: binary.toHex(" + test + ")");
-  // console.log("RESULT: " + binary.toHex(test));
+  console.log("TEST: binary.toDec(" + test + ")");
+  console.log("RESULT: " + binary.toDec(test));
+  console.log("TEST: binary.toHex(" + test + ")");
+  console.log("RESULT: " + binary.toHex(test));
 }
 
 
 function testModOct(test) {
   console.log("TEST: octal.toBin(" + test + ")");
   console.log("RESULT: " + octal.toBin(test));
-  console.log("TEST: octal.toOct(" + test + ")");
-  console.log("RESULT: " + octal.toOct(test));
-  console.log("TEST: octal.toDec(" + test + ")");
-  console.log("RESULT: " + octal.toDec(test));
-  console.log("TEST: octal.toHex(" + test + ")");
-  console.log("RESULT: " + octal.toHex(test));
+  // console.log("TEST: octal.toOct(" + test + ")");
+  // console.log("RESULT: " + octal.toOct(test));
+  // console.log("TEST: octal.toDec(" + test + ")");
+  // console.log("RESULT: " + octal.toDec(test));
+  // console.log("TEST: octal.toHex(" + test + ")");
+  // console.log("RESULT: " + octal.toHex(test));
 }
 
 

@@ -1,14 +1,10 @@
 /**
- * Octal module. Contains all logic and functionality for octal conversions 
- * to and from any base (binary, octal, decimal and hexadecimal).
+ * Octal module. Contains all logic and functionality for octal conversions.
  * @module octal
  */
 "use strict";
 
-// REMOVE THIS
-const {trimLeadingZeroes} = require('./helper.js');
-
-const {isValEmpty, stripValue} = require('./helper.js');
+const {isValEmpty, stripValue, trimLeadingZeroes} = require('./helper.js');
 const {padToBits} = require('./binary.js');
 
 /* 
@@ -83,20 +79,21 @@ function toHex(value) {
 }
 
 
-/*
-* Converts from octal to octal (returns as string)
-* Since converting to and from same base, simply
-* return the input value
-* arg1 is value to convert
-*/
+/**
+ * Converts from octal to octal, so if value is valid 
+ * it simply returns the same value.
+ * @param {string|number} value - Value to convert
+ * @returns {string}
+ */
 function toOct(value) {
+  if (!(value = stripValue(value, isValid))) return null;
   return value;
 }
 
 
 /**
  * Checks if value is a valid octal number for conversion.
- * @param {string} value - Value to validate.
+ * @param {string} value - Value to validate
  * @returns {boolean}
  */
 function isValid(value) {

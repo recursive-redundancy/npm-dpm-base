@@ -1,6 +1,5 @@
 /**
- * Decimal module. Contains all logic and functionality for decimal conversions 
- * to and from any base (binary, octal, decimal and hexadecimal).
+ * Decimal module. Contains all logic and functionality for decimal conversions.
  * @module decimal
  */
 "use strict";

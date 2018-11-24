@@ -1,6 +1,5 @@
 /**
- * Hexadecimal module. Contains all logic and functionality for hex 
- * conversions to and from any base (binary, octal, decimal and hexadecimal).
+ * Hexadecimal module. Contains all logic and functionality for hexadecimal conversions.
  * @module hexadecimal
  */
 "use strict";
