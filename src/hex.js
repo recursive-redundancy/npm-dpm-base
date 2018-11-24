@@ -60,9 +60,9 @@ function toDec(value) {
   if (!isValid(value)) return null;
   if (typeof(value) != "string") value = value.toString();
 
-  const {basetoDec} = require('./decimal');
+  const {baseToDec} = require('./decimal');
 
-  return basetoDec('16', value);
+  return baseToDec('16', value);
 };
 
 
@@ -131,16 +131,12 @@ function toOct(value) {
 
 /**
  * Checks if value is a valid hex number for conversion.
- * @param {string|number} value - Value to validate.
+ * @param {string} value - Value to validate.
  * @returns {boolean}
  */
 function isValid(value) {
-  if (isValEmpty(value)) return false;
-
-  // allow only digits of 0-9 & a-f
-  if (value.match(/[^0-9a-f]/gi)) return false;
-
-  return true;
+  const {isValid} = require('./helper.js');
+  return isValid(value, /[^0-9a-f]/gi);
 }
 
 

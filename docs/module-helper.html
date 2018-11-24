@@ -150,7 +150,7 @@
 
 
 <div class="description">
-    Checks whether value has any meaningful value to be parsed.Returns false if value is null, undefined or empty stringReturns true otherwise
+    Checks whether value has any meaningful value to be parsed.
 </div>
 
 
@@ -205,7 +205,7 @@
 
             
 
-            <td class="description last">The (alpha)numeric value to check.</td>
+            <td class="description last">Value to check.</td>
         </tr>
 
     
@@ -246,7 +246,187 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line14">line 14</a>
+        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line12">line 12</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Returns true if value is null, undefined or empty. Otherwise, returns false.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~isValid"><span class="type-signature">(inner) </span>isValid<span class="signature">(value, regEx)</span><span class="type-signature"> &rarr; {boolean}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Generic template function to validate values. To be called by each individual base module, which supplies a regular expression that matches an invalid format for the base's value.Note: use isValEmpty function prior to checking isValid to verifyvalue contains some kind of value to validate.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Value to validate.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>regEx</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">RegExp</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A regular expression to match invalid formats</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line28">line 28</a>
     </li></ul></dd>
     
 
@@ -425,7 +605,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line28">line 28</a>
+        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line41">line 41</a>
     </li></ul></dd>
     
 
@@ -477,7 +657,7 @@
     
 
     
-    <h4 class="name" id="~stripValue"><span class="type-signature">(inner) </span>stripValue<span class="signature">(value, validator)</span><span class="type-signature"> &rarr; {null|string}</span></h4>
+    <h4 class="name" id="~stripValue"><span class="type-signature">(inner) </span>stripValue<span class="signature">(value, validator)</span><span class="type-signature"> &rarr; {string|null}</span></h4>
     
 
     
@@ -485,7 +665,7 @@
 
 
 <div class="description">
-    Helper function for start of all module conversion functions.Takes input value and strips it down - removes all leading zeroes from value, but will leave a single zero value remaining, in which case returns '0' if value input is '0', '000' returns '0', etcChecks supplied module's isValid function to test value is valid.Additionally, converts value to stringreturns null if value is undefined, null, or !isValid
+    Helper function for start of all module conversion functions.Takes input value and strips it down. First, Checks supplied module's isValid function to test value is valid. Then, converts value to string and validates the value according to base format. Finally, trims valuefor leading zeroes, leaving a properly stripped value to convert.
 </div>
 
 
@@ -540,7 +720,7 @@
 
             
 
-            <td class="description last">Value to convert.</td>
+            <td class="description last">Value to strip.</td>
         </tr>
 
     
@@ -604,7 +784,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line52">line 52</a>
+        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line62">line 62</a>
     </li></ul></dd>
     
 
@@ -631,7 +811,7 @@
 
         
 <div class="param-desc">
-    '0' if value param is all zeroes, null if invalid value, or returns stripped value otherwise
+    null if invalid value. Otherwise, returns stripped value.
 </div>
 
 
@@ -642,10 +822,10 @@
     </dt>
     <dd>
         
-<span class="param-type">null</span>
+<span class="param-type">string</span>
 |
 
-<span class="param-type">string</span>
+<span class="param-type">null</span>
 
 
     </dd>
@@ -767,7 +947,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line66">line 66</a>
+        <a href="helper.js.html">helper.js</a>, <a href="helper.js.html#line77">line 77</a>
     </li></ul></dd>
     
 
@@ -842,7 +1022,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Nov 23 2018 11:03:45 GMT-0600 (Central Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri Nov 23 2018 21:58:17 GMT-0600 (Central Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

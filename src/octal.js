@@ -21,9 +21,9 @@ function toDec(value) {
   if (!isValid(value)) return null;
   if (typeof(value) != "string") value = value.toString();
 
-  const {basetoDec} = require('./decimal.js');
+  const {baseToDec} = require('./decimal.js');
 
-  return basetoDec('8', value);
+  return baseToDec('8', value);
 }
 
 
@@ -96,16 +96,12 @@ function toOct(value) {
 
 /**
  * Checks if value is a valid octal number for conversion.
- * @param {string|number} value - Value to validate.
+ * @param {string} value - Value to validate.
  * @returns {boolean}
  */
 function isValid(value) {
-  if (isValEmpty(value)) return false;
-
-  // allow only digits of 0-7
-  if (value.match(/[^0-7]/g)) return false;
-
-  return true;
+  const {isValid} = require('./helper.js');
+  return isValid(value, /[^0-7]/g);
 }
 
 

@@ -14,36 +14,36 @@ var undf;
 const TEST_SET = [
   undf, // undefined
   null,
-  // '',
-  // '0',
-  // '00',
+  '',
+  '0',
+  '00',
   '0000000',
-  // '1',
+  '1',
   '01',
   '00001',
-  // '0001000',
+  '0001000',
   '100',
-  // '100111000101011100000111',
-  // '0012000',
-  // '999999999999999999999999999',
-  // '00a',
-  // '0123456789abcdef'
+  '100111000101011100000111',
+  '0012000',
+  '999999999999999999999999999',
+  '00a',
+  '0123456789abcdef'
 ];
 
-console.log(hex.isValid('ab'));
-runTestSet(TEST_SET, false, false, false, false, false, true, false);
+
+runTestSet(TEST_SET, false, false, false, true, false, false, false);
 
 
 /**
  * Iterates test set and runs selected tests on each element in set
  * @param {string[]} set - Array of values to run tests upon
- * @param {boolean} doValEmpty - Flag to run test with isValEmpty helper function
- * @param {boolean} doTrimZeroes - Flag to run test with trimLeadingZeroes helper function
- * @param {boolean} doStripValue - Flag to run test with stripValue helper function
- * @param {boolean} doBin - Flag to run test with all binary module functions
- * @param {boolean} doOct - Flag to run test with all octal module functions
- * @param {boolean} doDec - Flag to run test with all decimal module functions
- * @param {boolean} doHex - Flag to run test with all hex module functions
+ * @param {boolean} [doValEmpty=true] - Flag to run test with isValEmpty helper function
+ * @param {boolean} [doTrimZeroes=true] - Flag to run test with trimLeadingZeroes helper function
+ * @param {boolean} [doStripValue=true] - Flag to run test with stripValue helper function
+ * @param {boolean} [doBin=true] - Flag to run test with all binary module functions
+ * @param {boolean} [doOct=true] - Flag to run test with all octal module functions
+ * @param {boolean} [doDec=true] - Flag to run test with all decimal module functions
+ * @param {boolean} [doHex=true] - Flag to run test with all hex module functions
  */
 function runTestSet(set, doValEmpty = true, doTrimZeroes = true, 
 doStripValue = true, doBin = true, doOct = true, doDec = true, 
@@ -59,13 +59,13 @@ doHex = true) {
  * The set of tests is each conversion function
  * for each base module
  * @param {string[]} set - Array of values to run tests upon
- * @param {boolean} doValEmpty - Flag to run test with isValEmpty helper function
- * @param {boolean} doTrimZeroes - Flag to run test with trimLeadingZeroes helper function
- * @param {boolean} doStripValue - Flag to run test with stripValue helper function
- * @param {boolean} doBin - Flag to run test with all binary module functions
- * @param {boolean} doOct - Flag to run test with all octal module functions
- * @param {boolean} doDec - Flag to run test with all decimal module functions
- * @param {boolean} doHex - Flag to run test with all hex module functions
+ * @param {boolean} [doValEmpty=true] - Flag to run test with isValEmpty helper function
+ * @param {boolean} [doTrimZeroes=true] - Flag to run test with trimLeadingZeroes helper function
+ * @param {boolean} [doStripValue=true] - Flag to run test with stripValue helper function
+ * @param {boolean} [doBin=true] - Flag to run test with all binary module functions
+ * @param {boolean} [doOct=true] - Flag to run test with all octal module functions
+ * @param {boolean} [doDec=true] - Flag to run test with all decimal module functions
+ * @param {boolean} [doHex=true] - Flag to run test with all hex module functions
  */
 function runTest(test, doValEmpty = true, doTrimZeroes = true, 
 doStripValue = true, doBin = true, doOct = true, doDec = true, 
@@ -100,12 +100,12 @@ doHex = true) {
 function testModBin(test) {
   console.log("TEST: binary.toBin(" + test + ")");
   console.log("RESULT: " + binary.toBin(test));
-  console.log("TEST: binary.toOct(" + test + ")");
-  console.log("RESULT: " + binary.toOct(test));
+  // console.log("TEST: binary.toOct(" + test + ")");
+  // console.log("RESULT: " + binary.toOct(test));
   console.log("TEST: binary.toDec(" + test + ")");
   console.log("RESULT: " + binary.toDec(test));
-  console.log("TEST: binary.toHex(" + test + ")");
-  console.log("RESULT: " + binary.toHex(test));
+  // console.log("TEST: binary.toHex(" + test + ")");
+  // console.log("RESULT: " + binary.toHex(test));
 }
 
 
@@ -122,14 +122,14 @@ function testModOct(test) {
 
 
 function testModDec(test) {
-  console.log("TEST: decimal.toBin(" + test + ")");
-  console.log("RESULT: " + decimal.toBin(test));
-  console.log("TEST: decimal.toOct(" + test + ")");
-  console.log("RESULT: " + decimal.toOct(test));
-  console.log("TEST: decimal.toDec(" + test + ")");
-  console.log("RESULT: " + decimal.toDec(test));
-  console.log("TEST: decimal.toHex(" + test + ")");
-  console.log("RESULT: " + decimal.toHex(test));
+  // console.log("TEST: decimal.toBin(" + test + ")");
+  // console.log("RESULT: " + decimal.toBin(test));
+  // console.log("TEST: decimal.toOct(" + test + ")");
+  // console.log("RESULT: " + decimal.toOct(test));
+  // console.log("TEST: decimal.toDec(" + test + ")");
+  // console.log("RESULT: " + decimal.toDec(test));
+  // console.log("TEST: decimal.toHex(" + test + ")");
+  // console.log("RESULT: " + decimal.toHex(test));
 }
 
 

@@ -40,7 +40,7 @@
   "scripts": {
     "jsdoc": "parallel jsdoc:onchange jsdoc:http",
     "prejsdoc:gen": "rimraf docs",
-    "jsdoc:gen": "jsdoc -c jsdoc/config.json",
+    "jsdoc:gen": "jsdoc jsdoc/README.md -c jsdoc/config.json",
     "jsdoc:http": "http-server ./docs",
     "jsdoc:onchange": "onchange \"src/*.js\" -- npm run jsdoc:gen",
     "test": "node test/test.js"

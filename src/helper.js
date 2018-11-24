@@ -6,15 +6,28 @@
 
 /**
  * Checks whether value has any meaningful value to be parsed.
- * Returns false if value is null, undefined or empty string
- * Returns true otherwise
- * @param {string|number} value - The (alpha)numeric value to check.
- * @returns {boolean} 
+ * @param {string|number} value - Value to check.
+ * @returns {boolean} Returns true if value is null, undefined or empty. Otherwise, returns false.
  */
 function isValEmpty(value) {
   if (value == null || value == undefined ||
     value == '') return true;
   return false;
+}
+
+/**
+ * Generic template function to validate values. To be called by each 
+ * individual base module, which supplies a regular expression that matches 
+ * an invalid format for the base's value.
+ * Note: use isValEmpty function prior to checking isValid to verify
+ * value contains some kind of value to validate.
+ * @param {string} value - Value to validate.
+ * @param {RegExp} regEx - A regular expression to match invalid formats
+ * @returns {boolean}
+ */
+function isValid(value, regEx) {
+  if (value.match(regEx)) return false;
+  return true;
 }
 
 
@@ -38,20 +51,18 @@ function repeat(times, value) {
 
 /**
  * Helper function for start of all module conversion functions.
- * Takes input value and strips it down - removes all leading 
- * zeroes from value, but will leave a single zero value remaining, 
- * in which case returns '0' if value input is '0', '000' returns '0', etc
- * Checks supplied module's isValid function to test value is valid.
- * Additionally, converts value to string
- * returns null if value is undefined, null, or !isValid
- * @param {string|number} value - Value to convert.
+ * Takes input value and strips it down. First, Checks supplied module's 
+ * isValid function to test value is valid. Then, converts value to string 
+ * and validates the value according to base format. Finally, trims value
+ * for leading zeroes, leaving a properly stripped value to convert.
+ * @param {string|number} value - Value to strip.
  * @param {function} validator - function to validate base value
- * @returns {null|string} '0' if value param is all zeroes, null if invalid value, 
- * or returns stripped value otherwise
+ * @returns {string|null} null if invalid value. Otherwise, returns stripped value.
  */
 function stripValue(value, validator) {
-  if (!validator(value)) return null;
+  if (isValEmpty(value)) return null;
   value = value.toString();
+  if (!validator(value)) return null;
   return trimLeadingZeroes(value);
 }
 
@@ -71,6 +82,7 @@ function trimLeadingZeroes(value) {
 
 module.exports = {
   isValEmpty,
+  isValid,
   repeat,
   stripValue,
   trimLeadingZeroes
