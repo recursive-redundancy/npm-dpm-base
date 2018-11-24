@@ -100,12 +100,12 @@ doHex = true) {
 function testModBin(test) {
   // console.log("TEST: binary.toBin(" + test + ")");
   // console.log("RESULT: " + binary.toBin(test));
-  // console.log("TEST: binary.toOct(" + test + ")");
-  // console.log("RESULT: " + binary.toOct(test));
+  console.log("TEST: binary.toOct(" + test + ")");
+  console.log("RESULT: " + binary.toOct(test));
   // console.log("TEST: binary.toDec(" + test + ")");
   // console.log("RESULT: " + binary.toDec(test));
-  console.log("TEST: binary.toHex(" + test + ")");
-  console.log("RESULT: " + binary.toHex(test));
+  // console.log("TEST: binary.toHex(" + test + ")");
+  // console.log("RESULT: " + binary.toHex(test));
 }
 
 

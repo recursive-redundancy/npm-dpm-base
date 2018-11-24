@@ -42,7 +42,7 @@
     "prejsdoc:gen": "rimraf docs",
     "jsdoc:gen": "jsdoc jsdoc/README.md -c jsdoc/config.json",
     "jsdoc:http": "http-server ./docs",
-    "jsdoc:onchange": "onchange \"src/*.js\" -- npm run jsdoc:gen",
+    "jsdoc:onchange": "onchange \"src/*.js\" \"jsdoc/*\" -- npm run jsdoc:gen",
     "test": "node test/test.js"
   }
 }

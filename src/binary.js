@@ -4,12 +4,12 @@
  */
 "use strict";
 
-const {isValEmpty, stripValue} = require('./helper.js');
+const {isValEmpty, trimLeadingZeroes, stripValue} = require('./helper.js');
 
 
 /**
- * Converts binary to Decimal
- * @param {string|number} value = Value to convert. 
+ * Converts binary to decimal.
+ * @param {string|number} value - Value to convert
  * @returns {string}
  */
 function toDec(value) {
@@ -23,7 +23,7 @@ function toDec(value) {
 /**
  * Converts from binary to binary, so if value is valid 
  * it simply returns the same value.
- * @param {string|number} value - Value to convert.
+ * @param {string|number} value - Value to convert
  * @returns {string}
  */
 function toBin(value) {
@@ -32,85 +32,66 @@ function toBin(value) {
 }
 
 
-/*
-* Takes a binary value
-* and converts to hex number value (returns as string)
-* arg1 is value to convert
-* returns null if invalid value
-*/
+/**
+ * Converts binary to hexadecimal.
+ * @param {string|number} value - Value to convert 
+ * @returns {string}
+ */
 function toHex(value) {
-  if (value == null || value == undefined ||
-    !isValid(value)) return null;
-  if (typeof(value) != "string") value = value.toString();
+  if (!(value = stripValue(value, isValid))) return null;
   
   const {toHex} = require('./decimal.js');
 
-  value = trimLeadingZeroes(value);
-
-  /*reverse string value so interpreted from right to left
-  * so they will be broken into 4-bit segments properly */
+  /* Reverse string value so interpreted from right to left 
+   * so they will be broken into 4-bit segments properly. */
   value = value.split('').reverse().join('');
 
-  // break value into 4-bit segments
+  /* Break value into 4-bit segments */
   let segs = value.match(/.{1,4}/g);
+
   /*
-  * convert 4-bit segment to decimal value
-  * segment must be reversed again to allow
-  * toDec function to process properly
-  * convert the decimal value into hex value
-  * and push into list of converted segments 
-  */
+   * Convert 4-bit segment to decimal value segment. Must be reversed again to 
+   * allow toDec function to process properly. Convert the decimal value into 
+   * hex value and push into list of converted segments.
+   */
   segs = segs.map((seg) => {
     return toHex(toDec(seg.split('').reverse().join('')));
   });
   
   /* 
-  * reverse list of hex conversions
-  * to put back in proper order
-  * then reassemble into a string result 
-  */
+   * reverse list of hex conversions to put back in proper order 
+   * then reassemble into a string result */
   return trimLeadingZeroes(segs.reverse().join(''));
 }
 
 
-/*
-* Takes a binary and converts 
-* to octal number value (returns as string)
-* arg1 is value to convert
-* returns null if invalid value
-*/
+/**
+ * Converts binary to octal.
+ * @param {string|number} value - Value to convert 
+ * @returns {string}
+ */
 function toOct(value) {
-  if (value == null || value == undefined ||
-    !isValid(value)) return null;
-  if (typeof(value) != "string") value = value.toString();
-  // value = trimLeadingZeroes(value);
-  // if (value.length == 0) return '';
+  if (!(value = stripValue(value, isValid))) return null;
   
   const {toOct} = require('./decimal.js');
 
-
-  // reverse string value so interpreted from right to left
-  // so they will be broken into 3-bit segments properly
+  /* Reverse string value so interpreted from right to left
+   * so they will be broken into 3-bit segments properly */
   value = value.split('').reverse().join('');
 
-  // break value into 3-bit segments
+  /* Break value into 3-bit segments */
   let segs = value.match(/.{1,3}/g);
 
-  /*
-  * convert 3-bit segment to decimal value
-  * reverse segment again so toDec function processes properly
-  * convert the decimal value into octal value
-  * and push into list of converted segments
-  */
+  /* Convert 3-bit segment to decimal value. Reverse segment 
+   * again so toDec function processes properly. Convert the 
+   * decimal value into octal value and push into list of 
+   * converted segments. */
   segs = segs.map((seg) => {
     return toOct(toDec(seg.split('').reverse().join('')));
   });
 
-  /*
-  * reverse list of octal conversions
-  * to put back in proper order
-  * then reassemble into a string result
-  */
+  /* Reverse list of octal conversions to put back in proper 
+   * order and then reassemble into a string result. */
   return trimLeadingZeroes(segs.reverse().join(''));
 }
 
@@ -130,7 +111,7 @@ function padToBits(bits, value) {
 
 /**
  * Checks if value is a valid binary number for conversion.
- * @param {string} value - Value to validate.
+ * @param {string} value - Value to validate
  * @returns {boolean}
  */
 function isValid(value) {

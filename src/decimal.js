@@ -14,7 +14,7 @@ const {isValEmpty, stripValue} = require('./helper.js');
 
 
 /**
- * Converts a base to decimal format (base-10)
+ * Converts a base to decimal.
  * @param {number} base - Base from which to convert
  * @param {string|number} value - Value to convert
  * @returns {string}
@@ -94,7 +94,7 @@ function toBase(base, value) {
 
 
 /**
- * Converts from decimal to binary (base-2). Shortcut 
+ * Converts from decimal to binary. Shortcut 
  * for calling toBase(2, value).
  * @param {string|number} value - Value to convert
  * @returns {string}
@@ -105,7 +105,7 @@ function toBin(value) {
 
 
 /**
- * Converts from decimal to decimal (base-10). Shortcut 
+ * Converts from decimal to decimal. Shortcut 
  * for calling toBase(10, value).
  * @param {string|number} value - Value to convert
  * @returns {string}
@@ -116,7 +116,7 @@ function toDec(value) {
 
 
 /**
- * Converts from decimal to hexadecimal (base-16). Shortcut 
+ * Converts from decimal to hexadecimal. Shortcut 
  * for calling toBase(16, value).
  * @param {string|number} value - Value to convert
  * @returns {string}
@@ -127,7 +127,7 @@ function toHex(value) {
 
 
 /**
- * Converts from decimal to octal (base-8). Shortcut 
+ * Converts from decimal to octal. Shortcut 
  * for calling toBase(8, value).
  * @param {string|number} value - Value to convert
  * @returns {string}
