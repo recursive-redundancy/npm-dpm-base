@@ -134,14 +134,14 @@ function testModDec(test) {
 
 
 function testModHex(test) {
-  console.log("TEST: hex.toBin(" + test + ")");
-  console.log("RESULT: " + hex.toBin(test));
-  console.log("TEST: hex.toOct(" + test + ")");
-  console.log("RESULT: " + hex.toOct(test));
-  console.log("TEST: hex.toDec(" + test + ")");
-  console.log("RESULT: " + hex.toDec(test));
-  console.log("TEST: hex.toHex(" + test + ")");
-  console.log("RESULT: " + hex.toHex(test));
+  // console.log("TEST: hex.toBin(" + test + ")");
+  // console.log("RESULT: " + hex.toBin(test));
+  // console.log("TEST: hex.toOct(" + test + ")");
+  // console.log("RESULT: " + hex.toOct(test));
+  // console.log("TEST: hex.toDec(" + test + ")");
+  // console.log("RESULT: " + hex.toDec(test));
+  // console.log("TEST: hex.toHex(" + test + ")");
+  // console.log("RESULT: " + hex.toHex(test));
 }
 
 
