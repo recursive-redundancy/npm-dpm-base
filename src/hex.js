@@ -129,9 +129,9 @@ function toOct(value) {
 
 
 /**
- * Checks if value is a valid hex number for conversion.
- * @param {string} value - Value to validate.
- * @returns {boolean}
+ * Checks if value is a valid binary number for conversion.
+ * @param {string} value - Value to validate
+ * @returns {boolean} - True if valid. False if invalid.
  */
 function isValid(value) {
   const {isValid} = require('./helper.js');
