@@ -243,7 +243,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binary.js.html">binary.js</a>, <a href="binary.js.html#line117">line 117</a>
+        <a href="binary.js.html">binary.js</a>, <a href="binary.js.html#line120">line 120</a>
     </li></ul></dd>
     
 
@@ -269,6 +269,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    - True if valid. False if invalid.
+</div>
+
 
 
 <dl>
@@ -422,7 +426,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binary.js.html">binary.js</a>, <a href="binary.js.html#line106">line 106</a>
+        <a href="binary.js.html">binary.js</a>, <a href="binary.js.html#line109">line 109</a>
     </li></ul></dd>
     
 
@@ -449,7 +453,7 @@
 
         
 <div class="param-desc">
-    - Returns value padded to desired bit-length.
+    - Value padded to desired bit-length.
 </div>
 
 
@@ -478,7 +482,7 @@
     
 
     
-    <h4 class="name" id="~toBin"><span class="type-signature">(inner) </span>toBin<span class="signature">(value)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="~toBin"><span class="type-signature">(inner) </span>toBin<span class="signature">(value)</span><span class="type-signature"> &rarr; {string|null}</span></h4>
     
 
     
@@ -487,6 +491,169 @@
 
 <div class="description">
     Converts from binary to binary, so if value is valid it simply returns the same value.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Value to convert</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="binary.js.html">binary.js</a>, <a href="binary.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - Binary value converted to binary (same as initial value) if supplied value is valid. Null if invalid value supplied.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+|
+
+<span class="param-type">null</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~toDec"><span class="type-signature">(inner) </span>toDec<span class="signature">(value)</span><span class="type-signature"> &rarr; {string|null}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Converts binary to decimal.
 </div>
 
 
@@ -608,164 +775,12 @@
 <h5>Returns:</h5>
 
         
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="~toDec"><span class="type-signature">(inner) </span>toDec<span class="signature">(value)</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Converts binary to decimal.
+<div class="param-desc">
+    - Binary value converted to decimal if supplied value is valid. Null if invalid value supplied.
 </div>
 
 
 
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Value to convert</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binary.js.html">binary.js</a>, <a href="binary.js.html#line15">line 15</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
 <dl>
     <dt>
         Type
@@ -773,6 +788,9 @@
     <dd>
         
 <span class="param-type">string</span>
+|
+
+<span class="param-type">null</span>
 
 
     </dd>
@@ -790,7 +808,7 @@
     
 
     
-    <h4 class="name" id="~toHex"><span class="type-signature">(inner) </span>toHex<span class="signature">(value)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="~toHex"><span class="type-signature">(inner) </span>toHex<span class="signature">(value)</span><span class="type-signature"> &rarr; {string|null}</span></h4>
     
 
     
@@ -894,7 +912,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binary.js.html">binary.js</a>, <a href="binary.js.html#line40">line 40</a>
+        <a href="binary.js.html">binary.js</a>, <a href="binary.js.html#line42">line 42</a>
     </li></ul></dd>
     
 
@@ -920,6 +938,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    - Binary value converted to hexadecimal if supplied value is valid. Null if invalid value supplied.
+</div>
+
 
 
 <dl>
@@ -929,6 +951,9 @@
     <dd>
         
 <span class="param-type">string</span>
+|
+
+<span class="param-type">null</span>
 
 
     </dd>
@@ -946,7 +971,7 @@
     
 
     
-    <h4 class="name" id="~toOct"><span class="type-signature">(inner) </span>toOct<span class="signature">(value)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="~toOct"><span class="type-signature">(inner) </span>toOct<span class="signature">(value)</span><span class="type-signature"> &rarr; {string|null}</span></h4>
     
 
     
@@ -1050,7 +1075,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="binary.js.html">binary.js</a>, <a href="binary.js.html#line73">line 73</a>
+        <a href="binary.js.html">binary.js</a>, <a href="binary.js.html#line76">line 76</a>
     </li></ul></dd>
     
 
@@ -1076,6 +1101,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    - Binary value converted to octal if supplied value is valid. Null if invalid value supplied.
+</div>
+
 
 
 <dl>
@@ -1085,6 +1114,9 @@
     <dd>
         
 <span class="param-type">string</span>
+|
+
+<span class="param-type">null</span>
 
 
     </dd>
@@ -1118,7 +1150,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sat Nov 24 2018 17:53:40 GMT-0600 (Central Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Nov 26 2018 00:33:31 GMT-0600 (Central Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

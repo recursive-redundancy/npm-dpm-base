@@ -7,42 +7,22 @@
 const {isValEmpty, stripValue, trimLeadingZeroes} = require('./helper.js');
 const {padToBits} = require('./binary.js');
 
-/* 
-* takes an octal number value
-* and returns value converted into decimal format (returns as string)
-* returns null if binary value is invalid
-* args is value to convert to decimal
-*/
-function toDec(value) {
-  if (!isValid(value)) return null;
-  if (typeof(value) != "string") value = value.toString();
 
-  const {baseToDec} = require('./decimal.js');
-
-  return baseToDec('8', value);
-}
-
-
-/*
-* Takes an octal value
-* and converts to binary number value (returns as string)
-* arg1 is value to convert
-* returns null if invalid value
-*/
+/**
+ * Converts octal to binary.
+ * @param {string|number} value - Value to convert
+ * @returns {string|null} - Octal value converted to binary if supplied 
+ * value is valid. Null if invalid value supplied.
+ */
 function toBin(value) {
-  if (value == null || value == undefined ||
-    !isValid(value)) return null;
-  if (typeof(value) != "string") value = value.toString();
+  if (!(value = stripValue(value, isValid))) return null;
 
   const {toBin} = require('./decimal.js');
 
-  value = trimLeadingZeroes(value);
-
-  // break octal value in single digits
+  /* Break octal value in single digits */
   let digits = value.split('');
   digits = digits.map((digit) => {
-    /* convert digit to binary
-    *  and padd to 3-bits if necessary */
+    /* Convert digit to binary & pad to 3-bits if necessary */
     return padToBits(3, toBin(digit));
   });
 
@@ -50,31 +30,39 @@ function toBin(value) {
 }
 
 
-/*
-* Takes an octal value
-* and converts to hex number value (returns as string)
-* arg1 is value to convert
-* returns null if invalid value
-*/
+/**
+ * Converts octal to decimal.
+ * @param {string|number} value - Value to convert
+ * @returns {string|null} - Octal value converted to decimal if supplied 
+ * value is valid. Null if invalid value supplied.
+ */
+function toDec(value) {
+  const {baseToDec} = require('./decimal.js');
+
+  return baseToDec(8, value, isValid);
+}
+
+
+/**
+ * Converts octal to binary.
+ * @param {string|number} value - Value to convert
+ * @returns {string|null} - Octal value converted to hexadecimal if supplied 
+ * value is valid. Null if invalid value supplied.
+ */
 function toHex(value) {
-  if (value == null || value == undefined ||
-    !isValid(value)) return null;
-  if (typeof(value) != "string") value = value.toString();
+  if (!(value = stripValue(value, isValid))) return null;
 
   const {toHex} = require('./binary.js');
 
-  value = trimLeadingZeroes(value);
-
-  // break value into single digits
+  /* Break value into single digits */
   let digits = value.split('');
   digits = digits.map((digit) => {
-    /* convert digit to binary value
-    *  pad it to 3-bit if needed */
+    /* Convert digit to binary value
+     * & pad it to 3-bit if needed */
     return padToBits(3, toBin(digit));
   });
 
-  /* assemble list of 3-bit binary values
-  *  and convert to a single hex value */
+  /* Assemble list of 3-bit binary values & convert to a single hex value */
   return trimLeadingZeroes(toHex(digits.join('')));
 }
 
@@ -83,7 +71,8 @@ function toHex(value) {
  * Converts from octal to octal, so if value is valid 
  * it simply returns the same value.
  * @param {string|number} value - Value to convert
- * @returns {string}
+ * @returns {string|null} - Octal value converted to octal (same as initial value) if supplied 
+ * value is valid. Null if invalid value supplied.
  */
 function toOct(value) {
   if (!(value = stripValue(value, isValid))) return null;
@@ -92,9 +81,9 @@ function toOct(value) {
 
 
 /**
- * Checks if value is a valid octal number for conversion.
+ * Checks if value is a valid binary number for conversion.
  * @param {string} value - Value to validate
- * @returns {boolean}
+ * @returns {boolean} - True if valid. False if invalid.
  */
 function isValid(value) {
   const {isValid} = require('./helper.js');

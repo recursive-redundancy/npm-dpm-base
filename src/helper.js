@@ -7,7 +7,7 @@
 /**
  * Checks whether value has any meaningful value to be parsed.
  * @param {string|number} value - Value to check.
- * @returns {boolean} Returns true if value is null, undefined or empty. Otherwise, returns false.
+ * @returns {boolean} True if value is null, undefined or empty. False otherwise.
  */
 function isValEmpty(value) {
   if (value == null || value == undefined ||
@@ -23,7 +23,7 @@ function isValEmpty(value) {
  * value contains some kind of value to validate.
  * @param {string} value - Value to validate.
  * @param {RegExp} regEx - A regular expression to match invalid formats
- * @returns {boolean}
+ * @returns {boolean} - True if valid value. False otherwise.
  */
 function isValid(value, regEx) {
   if (value.match(regEx)) return false;

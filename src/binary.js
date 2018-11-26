@@ -8,23 +8,11 @@ const {isValEmpty, trimLeadingZeroes, stripValue} = require('./helper.js');
 
 
 /**
- * Converts binary to decimal.
- * @param {string|number} value - Value to convert
- * @returns {string}
- */
-function toDec(value) {
-  if (!(value = stripValue(value, isValid))) return null;
-
-  const {baseToDec} = require('./decimal.js');
-  return baseToDec(2, value);
-}
-
-
-/**
  * Converts from binary to binary, so if value is valid 
  * it simply returns the same value.
  * @param {string|number} value - Value to convert
- * @returns {string}
+ * @returns {string|null} - Binary value converted to binary (same as 
+ * initial value) if supplied value is valid. Null if invalid value supplied.
  */
 function toBin(value) {
   if (!(value = stripValue(value, isValid))) return null;
@@ -33,9 +21,23 @@ function toBin(value) {
 
 
 /**
+ * Converts binary to decimal.
+ * @param {string|number} value - Value to convert
+ * @returns {string|null} - Binary value converted to decimal if supplied 
+ * value is valid. Null if invalid value supplied.
+ */
+function toDec(value) {
+  const {baseToDec} = require('./decimal.js');
+  
+  return baseToDec(2, value, isValid);
+}
+
+
+/**
  * Converts binary to hexadecimal.
  * @param {string|number} value - Value to convert 
- * @returns {string}
+ * @returns {string|null} - Binary value converted to hexadecimal if supplied 
+ * value is valid. Null if invalid value supplied.
  */
 function toHex(value) {
   if (!(value = stripValue(value, isValid))) return null;
@@ -68,7 +70,8 @@ function toHex(value) {
 /**
  * Converts binary to octal.
  * @param {string|number} value - Value to convert 
- * @returns {string}
+ * @returns {string|null} - Binary value converted to octal if supplied 
+ * value is valid. Null if invalid value supplied.
  */
 function toOct(value) {
   if (!(value = stripValue(value, isValid))) return null;
@@ -101,7 +104,7 @@ function toOct(value) {
  * make value into the desired bit-length.
  * @param {number} bits - Desired bit-length 
  * @param {string|number} value - Value to pad
- * @returns {string} - Returns value padded to desired bit-length.
+ * @returns {string} - Value padded to desired bit-length.
  */
 function padToBits(bits, value) {
   const {repeat} = require('./helper.js');
@@ -112,7 +115,7 @@ function padToBits(bits, value) {
 /**
  * Checks if value is a valid binary number for conversion.
  * @param {string} value - Value to validate
- * @returns {boolean}
+ * @returns {boolean} - True if valid. False if invalid.
  */
 function isValid(value) {
   const {isValid} = require('./helper.js');

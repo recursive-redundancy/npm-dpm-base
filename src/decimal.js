@@ -16,24 +16,26 @@ const {isValEmpty, stripValue} = require('./helper.js');
  * Converts a base to decimal.
  * @param {number} base - Base from which to convert
  * @param {string|number} value - Value to convert
- * @returns {string}
+ * @param {function} validator - A function to validate input value. Since 
+ * baseToDec function converts from all bases, it requires a function 
+ * to validate input value properly.
+ * @returns {string|null} - Base value converted to decimal if supplied 
+ * value is valid. Null if invalid value supplied.
  */
-function baseToDec(base, value) {
+function baseToDec(base, value, validator) {
   if (isValEmpty(base)) return null;
-  if (!(value = stripValue(value, isValid))) return null;
+  if (!(value = stripValue(value, validator))) return null;
 
- /**
-  * Rather than call exponential function repeatedly in iteration, keep 
+ /* Rather than call exponential function repeatedly in iteration, keep 
   * track of current power-of-base and multiply it by base each iteration.
   * This maintains respective power-of-base saving some overhead - starting 
-  * from right-most digit, e.g: base^0
-  */
+  * from right-most digit, e.g: base^0 */
   let powOfBase = BigNumber('1'), /**current power-of-base */
       result = BigNumber('0');
 
   const {HEX_ALPHA_TO_DIGIT} = require('./hex.js');
 
-  /* reverse value order to iterate in the proper order */
+  /* Reverse value order to iterate in the proper order */
   value = value.split('').reverse();
   value.forEach((digit) => {
     if (base == 16) digit = HEX_ALPHA_TO_DIGIT[digit.toLowerCase()];
@@ -50,7 +52,8 @@ function baseToDec(base, value) {
  * Either binary, octal, decimal or hex.
  * @param {number} base - Base from which to convert
  * @param {string|number} value - Value to convert
- * @returns {string}
+ * @returns {string|null} - Decimal value converted to base if supplied 
+ * value is valid. Null if invalid value supplied.
  */
 function toBase(base, value) {
   if (isValEmpty(base)) return null;
@@ -69,10 +72,8 @@ function toBase(base, value) {
   let BN = BigNumber.clone({ ROUNDING_MODE: 3});
   ansInt = BN(value);
   
-  /**
-   * Continually divide by base and track the remainder in remainList 
-   * until the integer portion of the divided result is zero.
-   */
+  /* Continually divide by base and track the remainder in remainList 
+   * until the integer portion of the divided result is zero */
   do {
     remain = ansInt.modulo(base);
     ansInt = ansInt.dividedBy(base).integerValue();
@@ -96,7 +97,8 @@ function toBase(base, value) {
  * Converts from decimal to binary. Shortcut 
  * for calling toBase(2, value).
  * @param {string|number} value - Value to convert
- * @returns {string}
+ * @returns {string|null} - Decimal value converted to binary if supplied 
+ * value is valid. Null if invalid value supplied.
  */
 function toBin(value) {
   return toBase(2, value);
@@ -107,7 +109,8 @@ function toBin(value) {
  * Converts from decimal to decimal. Shortcut 
  * for calling toBase(10, value).
  * @param {string|number} value - Value to convert
- * @returns {string}
+ * @returns {string|null} - Decimal value converted to decimal (same as 
+ * initial value) if supplied value is valid. Null if invalid value supplied.
  */
 function toDec(value) {
   return toBase(10, value);
@@ -118,7 +121,8 @@ function toDec(value) {
  * Converts from decimal to hexadecimal. Shortcut 
  * for calling toBase(16, value).
  * @param {string|number} value - Value to convert
- * @returns {string}
+ * @returns {string|null} - Decimal value converted to hexadecimal if supplied 
+ * value is valid. Null if invalid value supplied.
  */
 function toHex(value) {
   return toBase(16, value);
@@ -129,7 +133,8 @@ function toHex(value) {
  * Converts from decimal to octal. Shortcut 
  * for calling toBase(8, value).
  * @param {string|number} value - Value to convert
- * @returns {string}
+ * @returns {string|null} - Decimal value converted to octal if supplied 
+ * value is valid. Null if invalid value supplied.
  */
 function toOct(value) {
   return toBase(8, value);
@@ -137,9 +142,9 @@ function toOct(value) {
 
 
 /**
- * Checks if value is a valid decimal number for conversion.
+ * Checks if value is a valid binary number for conversion.
  * @param {string} value - Value to validate
- * @returns {boolean}
+ * @returns {boolean} - True if valid. False if invalid.
  */
 function isValid(value) {
   const {isValid} = require('./helper.js');

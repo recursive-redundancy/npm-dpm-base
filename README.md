@@ -122,8 +122,16 @@ let result = base.hex.toDec(1001);
 ```
 let result = base.hex.toHex(1001);
 ```
+### Hexadecimal alphanumeric digit to numeric
+```
+let result = HEX_ALPHA_TO_DIGIT['a']; // result = '10'
+```
+### Hexadecimal numeric to alphanumeric digit
+```
+let result = HEX_ALPHA_TO_DIGIT['15']; // result = 'f' 
+```
 
-
+HEX_ALPHA_TO_DIGIT[digit.toLowerCase()]
 # Dependencies
 [bignumber.js](https://github.com/MikeMcl/bignumber.js) : A JavaScript library 
 for arbitrary-precision decimal and non-decimal arithmetic

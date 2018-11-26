@@ -4,12 +4,9 @@
  */
 "use strict";
 
-const {isValEmpty, stripValue} = require('./helper.js');
+const {isValEmpty, stripValue, trimLeadingZeroes} = require('./helper.js');
 
-// REMOVE THIS
-const {trimLeadingZeroes} = require('./helper.js');
-
-// key for converting hex alphanumerics to numerals
+/** Key for converting hex alphanumeric digits to numerals. */
 const HEX_ALPHA_TO_DIGIT = {
   '0': '0',
   '1': '1',
@@ -29,7 +26,7 @@ const HEX_ALPHA_TO_DIGIT = {
   'f': '15'
 }
 
-// key for converting numerals to hex alphanumerics
+/** Key for converting numeral digits to hex alphanumeric. */
 const HEX_DIGIT_TO_ALPHA = {
   '0': '0',
   '1': '1',
@@ -49,45 +46,26 @@ const HEX_DIGIT_TO_ALPHA = {
   '15': 'f'
 }
 
-/* 
-* takes a hex number value
-* and returns value converted into decimal format (returns as string)
-* returns null if value is invalid
-* args is value to convert to decimal
-*/
-function toDec(value) {
-  if (!isValid(value)) return null;
-  if (typeof(value) != "string") value = value.toString();
 
-  const {baseToDec} = require('./decimal');
-
-  return baseToDec('16', value);
-};
-
-
-/*
-* Takes a hex value
-* and converts to binary number value (returns as string)
-* arg1 is value to convert
-* returns null if invalid value
-*/
+/**
+ * Converts hexadecimal to binary.
+ * @param {string|number} value - Value to convert
+ * @returns {string|null} - Hexadecimal value converted to binary if supplied 
+ * value is valid. Null if invalid value supplied.
+ */
 function toBin(value) {
-  if (value == null || value == undefined ||
-    !isValid(value)) return null;
-  if (typeof(value) != "string") value = value.toString();
+  if (!(value = stripValue(value, isValid))) return null;
   
   const {toBin} = require('./decimal.js');
   const {padToBits} = require('./binary.js');
 
-  value = trimLeadingZeroes(value);
-
-  // break hex value into single digits
+  /* Break hex value into single digits */
   let digits = value.split('');
   
   digits = digits.map((digit) => {
-    /* convert hex digit to decimal value
-    *  and convert the decimal value into binary value
-    *  pad binary value to 4-bit if needed */
+    /* Convert hex digit to decimal value and convert 
+     * the decimal value into binary value. Pad binary 
+     * value to 4-bit if needed. */
     return padToBits(4, toBin(toDec(digit)));
   });
 
@@ -95,43 +73,53 @@ function toBin(value) {
 }
 
 
-/*
-* Converts from hex to hex (returns as string)
-* Since converting to and from same base, simply
-* return the input value
-* arg1 is value to convert
-*/
+/**
+ * Converts hexadecimal to decimal.
+ * @param {string|number} value - Value to convert
+ * @returns {string|null} - Hexadecimal value converted to decimal if supplied 
+ * value is valid. Null if invalid value supplied.
+ */
+function toDec(value) {
+  const {baseToDec} = require('./decimal');
+
+  return baseToDec(16, value, isValid);
+};
+
+
+/**
+ * Converts from hexadecimal to hexadecimal, so if value is valid 
+ * it simply returns the same value.
+ * @param {string|number} value - Value to convert
+ * @returns {string|null} - Hexadecimal value converted to Hexadecimal (same as 
+ * initial value) if supplied value is valid. Null if invalid value supplied.
+ */
 function toHex(value) {
+  if (!(value = stripValue(value, isValid))) return null;
   return value;
 }
 
 
-/*
-* Takes a hex value
-* and converts to octal number value (returns as string)
-* arg1 is value to convert
-* returns null if invalid value
-*/
+/**
+ * Converts hexadecimal to octal.
+ * @param {string|number} value - Value to convert
+ * @returns {string|null} - Hexadecimal value converted to octal if supplied 
+ * value is valid. Null if invalid value supplied.
+ */
 function toOct(value) {
-  if (value == null || value == undefined ||
-    !isValid(value)) return null;
-  if (typeof(value) != "string") value = value.toString();
+  if (!(value = stripValue(value, isValid))) return null;
 
   const {toOct} = require('./binary.js');
 
-  /* 
-  * convert hex to binary
-  * then convert the binary to octal
-  * and trim any leading zeroes
-  */
+  /* Convert hex to binary then convert the binary to octal 
+   * and trim any leading zeroes */
   return trimLeadingZeroes(toOct(toBin(value)));
 }
 
 
 /**
- * Checks if value is a valid hex number for conversion.
- * @param {string} value - Value to validate.
- * @returns {boolean}
+ * Checks if value is a valid hexadecimal number for conversion.
+ * @param {string} value - Value to validate
+ * @returns {boolean} - True if valid. False if invalid.
  */
 function isValid(value) {
   const {isValid} = require('./helper.js');
