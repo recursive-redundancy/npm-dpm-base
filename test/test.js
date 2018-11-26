@@ -12,26 +12,26 @@ var undf;
 
 /** Set of test values */
 const TEST_SET = [
-  undf, // undefined
-  null,
-  '',
-  '0',
-  '00',
-  '0000000',
-  '1',
-  '01',
-  '00001',
-  '0001000',
-  '100',
-  '100111000101011100000111',
-  '0012000',
-  '999999999999999999999999999',
+  // undf, // undefined
+  // null,
+  // '',
+  // '0',
+  // '00',
+  // '0000000',
+  // '1',
+  // '01',
+  // '00001',
+  // '0001000',
+  // '100',
+  // '100111000101011100000111',
+  // '0012000',
+  // '999999999999999999999999999',
   '00a',
   '0123456789abcdef'
 ];
 
 
-runTestSet(TEST_SET, false, false, false, false, true, false, false);
+runTestSet(TEST_SET, false, false, false, false, false, false, true);
 
 
 /**
@@ -112,12 +112,12 @@ function testModBin(test) {
 function testModOct(test) {
   console.log("TEST: octal.toBin(" + test + ")");
   console.log("RESULT: " + octal.toBin(test));
-  // console.log("TEST: octal.toOct(" + test + ")");
-  // console.log("RESULT: " + octal.toOct(test));
-  // console.log("TEST: octal.toDec(" + test + ")");
-  // console.log("RESULT: " + octal.toDec(test));
-  // console.log("TEST: octal.toHex(" + test + ")");
-  // console.log("RESULT: " + octal.toHex(test));
+  console.log("TEST: octal.toOct(" + test + ")");
+  console.log("RESULT: " + octal.toOct(test));
+  console.log("TEST: octal.toDec(" + test + ")");
+  console.log("RESULT: " + octal.toDec(test));
+  console.log("TEST: octal.toHex(" + test + ")");
+  console.log("RESULT: " + octal.toHex(test));
 }
 
 

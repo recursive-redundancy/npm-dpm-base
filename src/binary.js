@@ -8,29 +8,28 @@ const {isValEmpty, trimLeadingZeroes, stripValue} = require('./helper.js');
 
 
 /**
+ * Converts from binary to binary, so if value is valid 
+ * it simply returns the same value.
+ * @param {string|number} value - Value to convert
+ * @returns {string|null} - Binary value converted to binary (same as 
+ * initial value) if supplied value is valid. Null if invalid value supplied.
+ */
+function toBin(value) {
+  if (!(value = stripValue(value, isValid))) return null;
+  return value;
+}
+
+
+/**
  * Converts binary to decimal.
  * @param {string|number} value - Value to convert
  * @returns {string|null} - Binary value converted to decimal if supplied 
  * value is valid. Null if invalid value supplied.
  */
 function toDec(value) {
-  if (!(value = stripValue(value, isValid))) return null;
-
   const {baseToDec} = require('./decimal.js');
-  return baseToDec(2, value);
-}
-
-
-/**
- * Converts from binary to binary, so if value is valid 
- * it simply returns the same value.
- * @param {string|number} value - Value to convert
- * @returns {string|null} - Binary value converted to binary (same as initial value) if supplied 
- * value is valid. Null if invalid value supplied.
- */
-function toBin(value) {
-  if (!(value = stripValue(value, isValid))) return null;
-  return value;
+  
+  return baseToDec(2, value, isValid);
 }
 
 
