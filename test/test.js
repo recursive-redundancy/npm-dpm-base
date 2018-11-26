@@ -501,16 +501,9 @@ runTestSet(TEST_SET, true, true, true, true);
  */
 function runTestSet(set, doBin = true, doOct = true, doDec = true, 
 doHex = true) { 
-
   for (const test in set) {
     runTest(test, set[test], doBin, doOct, doDec, doHex);
   }
-
-  // set.forEach(test => {
-  //   runTest(test, doValEmpty, doTrimZeroes, doStripValue, doBin, doOct, doDec, doHex);
-  // });
- 
-
 }
 
 
