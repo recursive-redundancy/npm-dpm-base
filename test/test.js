@@ -12,26 +12,253 @@ var undf;
 
 /** Set of test values */
 const TEST_SET = [
-  undf, // undefined
-  null,
-  '',
-  '0',
-  '00',
-  '0000000',
-  '1',
-  '01',
-  '00001',
-  '0001000',
-  '100',
-  '100111000101011100000111',
-  '0012000',
-  '999999999999999999999999999',
-  '00a',
+  // undf, // undefined
+  // null,
+  // '',
+  // '0',
+  // '00',
+  // '0000000',
+  // '1',
+  // '01',
+  // '00001',
+  // '0001000',
+  /** 
+   *  binary:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   * 
+   *  octal:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   * 
+   *  decimal:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   *
+   *  hexadecimal:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   */
+  // '100',
+  /** 
+   *  binary:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   * 
+   *  octal:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   * 
+   *  decimal:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   *
+   *  hexadecimal:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   */
+  // '100111000101011100000111',
+  /** 
+   *  binary:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   * 
+   *  octal:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   * 
+   *  decimal:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   *
+   *  hexadecimal:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   */
+  // '0012000',
+  /** 
+   *  binary:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   * 
+   *  octal:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   * 
+   *  decimal:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   *
+   *  hexadecimal:
+   *  toBin-
+   *  toOct-
+   *  toDec-
+   *  toHex-
+   */
+  // '17252470014',
+  /** 
+   *  binary:
+   *  toBin-null
+   *  toOct-null
+   *  toDec-null
+   *  toHex-null
+   * 
+   *  octal:
+   *  toBin-1111010101010100111000000001100
+   *  toOct-17252470014
+   *  toDec-2057990156
+   *  toHex-7aaa700c
+   * 
+   *  decimal:
+   *  toBin-10000000100010100111100110011111110
+   *  toOct-200424746376
+   *  toDec-17252470014
+   *  toHex-40453ccfe
+   *
+   *  hexadecimal:
+   *  toBin-10111001001010010010001110000000000010100
+   *  toOct-27112221600024
+   *  toDec-1590518284308
+   *  toHex-17252470014
+   */
+  // '9282763583927',
+  /** 
+   *  binary:
+   *  toBin-null
+   *  toOct-null
+   *  toDec-null
+   *  toHex-null
+   * 
+   *  octal:
+   *  toBin-null
+   *  toOct-null
+   *  toDec-null
+   *  toHex-null
+   * 
+   *  decimal:
+   *  toBin-10000111000101001111110100110111000110110111
+   *  toOct-207051764670667
+   *  toDec-9282763583927
+   *  toHex-8714fd371b7
+   *
+   *  hexadecimal:
+   *  toBin-1001001010000010011101100011010110000011100100100111
+   *  toOct-111202354326034447
+   *  toDec-2577424425957671
+   *  toHex-9282763583927
+   */
+  // '999999999999999999999999999',
+  /** 
+   *  binary:
+   *  toBin-null
+   *  toOct-null
+   *  toDec-null
+   *  toHex-null
+   * 
+   *  octal:
+   *  toBin-null
+   *  toOct-null
+   *  toDec-null
+   *  toHex-null
+   * 
+   *  decimal:
+   *  toBin-110011101100101110001111001001111111010000100000000011110011100111111111111111111111111111
+   *  toOct-635456171177204003634777777777
+   *  toDec-999999999999999999999999999
+   *  toHex-33b2e3c9fd0803ce7ffffff
+   *
+   *  hexadecimal:
+   *  toBin-100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001100110011001
+   *  toOct-463146314631463146314631463146314631
+   *  toDec-194711132195056036069893612345753
+   *  toHex-999999999999999999999999999
+   */
+  // '00a',
+  /** 
+   *  binary:
+   *  toBin-null
+   *  toOct-null
+   *  toDec-null
+   *  toHex-null
+   * 
+   *  octal:
+   *  toBin-null
+   *  toOct-null
+   *  toDec-null
+   *  toHex-null
+   * 
+   *  decimal:
+   *  toBin-null
+   *  toOct-null
+   *  toDec-null
+   *  toHex-null
+   *
+   *  hexadecimal:
+   *  toBin-1010
+   *  toOct-12
+   *  toDec-10
+   *  toHex-a
+   */
   '0123456789abcdef'
+  /** 
+   *  binary:
+   *  toBin-null
+   *  toOct-null
+   *  toDec-null
+   *  toHex-null
+   * 
+   *  octal:
+   *  toBin-null
+   *  toOct-null
+   *  toDec-null
+   *  toHex-null
+   * 
+   *  decimal:
+   *  toBin-null
+   *  toOct-null
+   *  toDec-null
+   *  toHex-null
+   *
+   *  hexadecimal:
+   *  toBin-100100011010001010110011110001001101010111100110111101111
+   *  toOct-4432126361152746757
+   *  toDec-81985529216486895
+   *  toHex-0123456789abcdef
+   */
 ];
 
 
-runTestSet(TEST_SET, false, false, false, false, false, true, false);
+runTestSet(TEST_SET, false, false, false, true, true, true, true);
 
 
 /**
@@ -73,24 +300,43 @@ doHex = true) {
   console.log("Test Run: test=" + test);
   console.log(helper.repeat(40, '='));
 
-  if (doValEmpty) testIsValEmpty(test);
+  if (doValEmpty) {
+    testIsValEmpty(test);
+    console.log(helper.repeat(40, '.'));
+  }
 
-  if (doTrimZeroes) testTrimZeroes(test);
+  if (doTrimZeroes) {
+    testTrimZeroes(test);
+    console.log(helper.repeat(40, '.'));
+  }
 
   if (doStripValue) {
     testStripValue(test, binary.isValid, "binary");
     testStripValue(test, octal.isValid, "octal");
     testStripValue(test, decimal.isValid, "decimal");
     testStripValue(test, hex.isValid, "hexadecimal");
+    console.log(helper.repeat(40, '.'));
   }
 
-  if (doBin) testModBin(test);
+  if (doBin) {
+    testModBin(test);
+    console.log(helper.repeat(40, '.'));
+  }
 
-  if (doOct) testModOct(test);
+  if (doOct) {
+    testModOct(test);
+    console.log(helper.repeat(40, '.'));
+  }
 
-  if (doDec) testModDec(test);
+  if (doDec) {
+    testModDec(test);
+    console.log(helper.repeat(40, '.'));
+  }
 
-  if (doHex) testModHex(test);
+  if (doHex) {
+    testModHex(test);
+    console.log(helper.repeat(40, '.'));
+  }
 
   console.log("\nTest Run Complete");
   console.log(helper.repeat(40, '-') + "\n\n");
