@@ -12,26 +12,26 @@ var undf;
 
 /** Set of test values */
 const TEST_SET = [
-  // undf, // undefined
-  // null,
-  // '',
-  // '0',
-  // '00',
-  // '0000000',
-  // '1',
-  // '01',
-  // '00001',
-  // '0001000',
-  // '100',
-  // '100111000101011100000111',
-  // '0012000',
-  // '999999999999999999999999999',
+  undf, // undefined
+  null,
+  '',
+  '0',
+  '00',
+  '0000000',
+  '1',
+  '01',
+  '00001',
+  '0001000',
+  '100',
+  '100111000101011100000111',
+  '0012000',
+  '999999999999999999999999999',
   '00a',
   '0123456789abcdef'
 ];
 
 
-runTestSet(TEST_SET, false, false, false, false, false, false, true);
+runTestSet(TEST_SET, false, false, false, false, false, true, false);
 
 
 /**
@@ -122,14 +122,14 @@ function testModOct(test) {
 
 
 function testModDec(test) {
-  // console.log("TEST: decimal.toBin(" + test + ")");
-  // console.log("RESULT: " + decimal.toBin(test));
-  // console.log("TEST: decimal.toOct(" + test + ")");
-  // console.log("RESULT: " + decimal.toOct(test));
-  // console.log("TEST: decimal.toDec(" + test + ")");
-  // console.log("RESULT: " + decimal.toDec(test));
-  // console.log("TEST: decimal.toHex(" + test + ")");
-  // console.log("RESULT: " + decimal.toHex(test));
+  console.log("TEST: decimal.toBin(" + test + ")");
+  console.log("RESULT: " + decimal.toBin(test));
+  console.log("TEST: decimal.toOct(" + test + ")");
+  console.log("RESULT: " + decimal.toOct(test));
+  console.log("TEST: decimal.toDec(" + test + ")");
+  console.log("RESULT: " + decimal.toDec(test));
+  console.log("TEST: decimal.toHex(" + test + ")");
+  console.log("RESULT: " + decimal.toHex(test));
 }
 
 

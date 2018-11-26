@@ -17,8 +17,8 @@ const {isValEmpty, stripValue} = require('./helper.js');
  * @param {number} base - Base from which to convert
  * @param {string|number} value - Value to convert
  * @param {function} validator - A function to validate input value. Since 
- * baseToDec function converts all bases, function requires a function 
- * to validate input.
+ * baseToDec function converts from all bases, it requires a function 
+ * to validate each base's input.
  * @returns {string}
  */
 function baseToDec(base, value, validator) {
@@ -70,10 +70,8 @@ function toBase(base, value) {
   let BN = BigNumber.clone({ ROUNDING_MODE: 3});
   ansInt = BN(value);
   
-  /**
-   * Continually divide by base and track the remainder in remainList 
-   * until the integer portion of the divided result is zero.
-   */
+  /* Continually divide by base and track the remainder in remainList 
+   * until the integer portion of the divided result is zero */
   do {
     remain = ansInt.modulo(base);
     ansInt = ansInt.dividedBy(base).integerValue();
