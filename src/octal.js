@@ -44,7 +44,7 @@ function toDec(value) {
 
 
 /**
- * Converts octal to binary.
+ * Converts octal to hexadecimal.
  * @param {string|number} value - Value to convert
  * @returns {string|null} - Octal value converted to hexadecimal if supplied 
  * value is valid. Null if invalid value supplied.

@@ -26,7 +26,7 @@ const HEX_ALPHA_TO_DIGIT = {
   'f': '15'
 }
 
-/** Key for converting numeral digits to hex alphanumeric. */
+/** Key for converting numeral to hex alphanumeric digit. */
 const HEX_DIGIT_TO_ALPHA = {
   '0': '0',
   '1': '1',

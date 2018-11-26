@@ -51,7 +51,7 @@ function repeat(times, value) {
 
 /**
  * Helper function for start of all module conversion functions.
- * Takes input value and strips it down. First, Checks supplied module's 
+ * Takes input value and strips it down. First, checks supplied module's 
  * isValid function to test value is valid. Then, converts value to string 
  * and validates the value according to base format. Finally, trims value
  * for leading zeroes, leaving a properly stripped value to convert.
@@ -69,7 +69,7 @@ function stripValue(value, validator) {
 
 /**
  * Trims off any leading zeroes in a value. 
- * Will leave one leading zero if it is not proceeded by
+ * Will leave one zero if it is not proceeded by
  * any other characters - effectively leaving a lone zero.
  * @param {string|number} value - Value to be trimmed
  * @returns {string|null} Value trimmed of leading zeros or null if value is empty
