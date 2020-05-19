@@ -2,14 +2,15 @@
   "name": "dpm-base",
   "version": "0.3.2",
   "description": "Convert numeric bases to and from binary, octal, decimal and hexadecimal",
-  "main": "./src/main.js",
+  "main": "./dist/main.js",
   "directories": {
+    "dist": "dist",
     "docs": "docs",
     "src": "src",
     "test": "test"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "keywords": [
     "base",
@@ -28,16 +29,21 @@
   "author": "Daniel Morgan",
   "license": "MIT",
   "dependencies": {
-    "bignumber.js": "^7.2.1"
+    "bignumber.js": "^9.0.0"
   },
   "devDependencies": {
-    "http-server": "^0.11.1",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "http-server": "^0.12.3",
     "jsdoc": "^3.6.3",
     "npm-parallel": "^2.0.1",
-    "onchange": "^5.1.1",
+    "onchange": "^7.0.2",
     "rimraf": "^2.6.2"
   },
   "scripts": {
+    "prebuild": "rimraf ./dist",
+    "build": "npx babel --config-file ./babel.config.json src --out-dir dist",
     "jsdoc": "parallel jsdoc:onchange jsdoc:http",
     "prejsdoc:gen": "rimraf docs",
     "jsdoc:gen": "jsdoc jsdoc/README.md -c jsdoc/config.json",
