@@ -7,9 +7,6 @@ for big number calculations via bignumber.js dependancy.
 ## Limitations
 - Currently only support conversion of whole number values - no fractional values 
 as of yet. Support for fractional conversion may be added in the future.
-- Code utilizes some JavaScript ES6 functionality, and this package is left as such.
-So if user requires ES5 and/or older browser support, the package must be transpiled 
-using method of your choice. I prefer [babel](https://babeljs.io/).
 # Installation
 npm install dpm-base
 # API Documentation
